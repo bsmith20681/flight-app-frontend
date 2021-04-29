@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import SelectAirport from "../components/SelectAirport";
+
 const Home = () => {
   const [data, setData] = useState("");
   const options = {
@@ -30,6 +32,7 @@ const Home = () => {
   return (
     <div className="container">
       <h1>This is the home page</h1>
+      <SelectAirport />
     </div>
   );
 };
