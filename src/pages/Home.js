@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import SelectAirport from "../components/SelectAirport";
+import SelectDate from "../components/SelectDate";
 
 const Home = () => {
   const [data, setData] = useState("");
@@ -33,6 +34,7 @@ const Home = () => {
     <div className="container">
       <h1>This is the home page</h1>
       <SelectAirport />
+      <SelectDate />
     </div>
   );
 };
