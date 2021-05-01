@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import calendar from "../images/calendar-alt.svg";
 
 const SelectDate = () => {
-  const [openPopup, setopenPopup] = useState(false);
-  const openCalendar = () => {
-    setopenPopup(!openPopup);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const toggleCalendar = () => {
+    setIsCalendarOpen(!isCalendarOpen);
   };
 
+  const detectOutsideClick = useRef();
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!detectOutsideClick.current.contains(event.target)) {
+        setIsCalendarOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   return (
-    <div className="selectDate" onClick={openCalendar}>
-      <img className="selectDate-calendar" src={calendar} alt="calendar" />
-      <div className={`selectDate-popup ${openPopup ? "visible" : "hidden"}`}>
+    <div ref={detectOutsideClick} className="selectDate">
+      <div onClick={toggleCalendar}>
+        <img className="selectDate-calendar" src={calendar} alt="calendar" />
+      </div>
+      <div
+        className={`selectDate-popup ${isCalendarOpen ? "visible" : "hidden"}`}
+      >
         <p>April</p>
       </div>
     </div>
