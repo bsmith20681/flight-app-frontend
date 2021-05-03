@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import calendar from "../images/calendar-alt.svg";
+import angleLeft from "../images/angle-left.svg";
+import angleRight from "../images/angle-right.svg";
 
 const SelectDate = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);

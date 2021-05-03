@@ -2,7 +2,7 @@ import React from "react";
 import AirportCodes from "../airports.json";
 import Select from "react-select";
 
-const SelectAirport = () => {
+const SelectAirport = (props) => {
   const options = [];
   AirportCodes.data.forEach((x) => {
     options.push({
@@ -11,7 +11,7 @@ const SelectAirport = () => {
     });
   });
 
-  return <Select options={options} />;
+  return <Select options={options} placeholder={props.placeholder} />;
 };
 
 export default SelectAirport;
