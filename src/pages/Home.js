@@ -35,6 +35,7 @@ const Home = () => {
       <h1>This is the home page</h1>
       <SelectAirport />
       <SelectDate />
+      <SelectDate />
     </div>
   );
 };
