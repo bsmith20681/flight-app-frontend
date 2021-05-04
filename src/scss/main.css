@@ -13,12 +13,33 @@
 .selectDate-popup {
   border: 1px solid black;
   background-color: white;
-  padding: 40px;
+  padding: 10px;
+  width: 200px;
+  max-width: 350px;
   position: absolute;
   top: 100%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+.selectDate-month {
+  display: flex;
+  width: 100%;
+  max-width: 120px;
+}
+.selectDate-month p {
+  padding-right: 10px;
+}
+.selectDate-month_container {
+  display: flex;
+  justify-content: space-around;
+}
+.selectDate-arrows {
+  width: 16px;
+}
+.selectDate-arrows_unactive {
+  fill: gray;
+  width: 16px;
 }
 
 .hidden {
