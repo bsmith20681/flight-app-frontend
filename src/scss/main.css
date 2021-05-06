@@ -175,9 +175,15 @@ nav {
 .calendar-weekdays p {
   padding-right: 16px;
 }
+.calendar-day:hover {
+  border: 2px solid blue;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 28px);
+  text-align: center;
 }
 
 .container {

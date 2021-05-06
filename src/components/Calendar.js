@@ -19,14 +19,20 @@ const Calendar = () => {
   const nextMonth = () => {
     setMonth(month + 1);
   };
+
   return (
     <div className="calendar">
-      <img
-        onClick={prevMonth}
-        className="selectDate-arrows"
-        src={angleLeft}
-        alt="angle left"
-      />
+      {month < moment().month() + 1 ? (
+        <img className="selectDate-arrows" src={angleLeft} alt="angle left" />
+      ) : (
+        <img
+          onClick={prevMonth}
+          className="selectDate-arrows"
+          src={angleLeft}
+          alt="angle left"
+        />
+      )}
+
       <div className="calendar-single">
         <div className="calendar-header">
           <p>
@@ -40,7 +46,7 @@ const Calendar = () => {
         </div>
         <div className="calendar-days">
           {[...Array(daysInMonth(month + 1)).keys()].map((x) => (
-            <p>{x + 1}</p>
+            <p className="calendar-day">{x + 1}</p>
           ))}
         </div>
       </div>
@@ -60,16 +66,20 @@ const Calendar = () => {
         </div>
         <div className="calendar-days">
           {[...Array(daysInMonth(month + 2)).keys()].map((x) => (
-            <p>{x + 1}</p>
+            <p className="calendar-day">{x + 1}</p>
           ))}
         </div>
       </div>
-      <img
-        onClick={nextMonth}
-        className="selectDate-arrows"
-        src={angleRight}
-        alt="angle right"
-      />
+      {month >= 10 ? (
+        <img className="selectDate-arrows" src={angleRight} alt="angle right" />
+      ) : (
+        <img
+          onClick={nextMonth}
+          className="selectDate-arrows"
+          src={angleRight}
+          alt="angle right"
+        />
+      )}
     </div>
   );
 };
