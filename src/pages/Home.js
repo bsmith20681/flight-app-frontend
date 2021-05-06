@@ -3,6 +3,7 @@ import axios from "axios";
 
 import SelectAirport from "../components/SelectAirport";
 import SelectDate from "../components/SelectDate";
+import Calendar from "../components/Calendar";
 
 const Home = () => {
   const [data, setData] = useState("");
@@ -36,6 +37,7 @@ const Home = () => {
       <SelectAirport placeholder="From?" />
       <SelectAirport placeholder="To?" />
       <SelectDate />
+      <Calendar />
     </div>
   );
 };
