@@ -1,8 +1,13 @@
 .calendar {
   display: flex;
-
   border: 1px solid black;
   width: fit-content;
+  align-items: flex-start;
+
+  &-arrows {
+    width: 16px;
+    margin: 20px 10px;
+  }
 
   &-single {
     padding: 10px;
@@ -14,13 +19,20 @@
 
   &-weekdays {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 
     & p {
-      padding-right: 16px;
+      text-align: center;
+      width: 100%;
+      margin: 0;
     }
   }
 
   &-day {
+    &_unactive {
+      color: grey;
+    }
     &:hover {
       border: 2px solid blue;
       border-radius: 50%;
