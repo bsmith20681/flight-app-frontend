@@ -177,6 +177,9 @@ nav {
   width: 100%;
   margin: 0;
 }
+.calendar-day {
+  border: 2px solid transparent;
+}
 .calendar-day_unactive {
   color: grey;
 }
@@ -189,6 +192,14 @@ nav {
   display: grid;
   grid-template-columns: repeat(7, 28px);
   text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+.active {
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
 }
 
 .container {
