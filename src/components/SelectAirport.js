@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import AirportCodes from "../airports.json";
-import Select from "react-select";
+import Select, { createFilter } from "react-select";
 
 const SelectAirport = (props) => {
-  const options = [];
-  AirportCodes.data.forEach((x) => {
-    options.push({
-      label: `✈${x["City/Airport"]}, ${x.Country} - ${x["IATA code"]}`,
-      value: `${x["IATA code"]}`,
-    });
-  });
+  const options = AirportCodes;
 
-  return <Select options={options} placeholder={props.placeholder} />;
+  return (
+    <div className="">
+      <Select
+        name={props.name}
+        onChange={props.onChange}
+        options={options}
+        placeholder={props.placeholder}
+        filterOption={createFilter({ ignoreAccents: false })}
+      />
+    </div>
+  );
 };
 
 export default SelectAirport;
