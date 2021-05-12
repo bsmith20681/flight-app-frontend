@@ -8,6 +8,7 @@ const SelectAirport = (props) => {
   return (
     <div className="">
       <Select
+        className="selectAirport"
         name={props.name}
         onChange={props.onChange}
         options={options}

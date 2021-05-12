@@ -35,7 +35,7 @@ const FindFlight = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} class="findFlight">
       <SelectAirport
         placeholder="From?"
         onChange={(e) => {

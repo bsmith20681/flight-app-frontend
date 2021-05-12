@@ -202,6 +202,15 @@ nav {
   border-radius: 50%;
 }
 
+.selectAirport {
+  width: 250px;
+}
+
+.findFlight {
+  display: flex;
+  justify-content: space-between;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
