@@ -3,14 +3,15 @@ import moment from "moment";
 import angleLeft from "../images/angle-left.svg";
 import angleRight from "../images/angle-right.svg";
 
-import Day from "./Day";
-
 const Calendar = () => {
   const [month, setMonth] = useState(moment().month());
   const [year, setYear] = useState(moment().format("YYYY"));
   const [isActive, setIsActive] = useState(null);
-
-  const weekDays = ["S", "M", "T", "W", "T", "F", "S"];
+  const [flightDate, setFlightDate] = useState({
+    count: 0,
+    departureDate: null,
+    arrivalDate: null,
+  });
 
   const currentDayOfMonth = moment().date();
   const currentMonth = moment().month();
@@ -34,7 +35,19 @@ const Calendar = () => {
   };
 
   const active = (e) => {
-    setIsActive(e);
+    if (flightDate.count % 2 === 0) {
+      setFlightDate({
+        ...flightDate,
+        departureDate: e,
+        count: flightDate.count + 1,
+      });
+    } else {
+      setFlightDate({
+        ...flightDate,
+        arrivalDate: e,
+        count: flightDate.count + 1,
+      });
+    }
   };
 
   return (
@@ -50,26 +63,36 @@ const Calendar = () => {
         />
       )}
 
-      <div className="calendar-single">
-        <div className="calendar-header">
-          <p>
-            {moment().month(month).format("MMMM")} {moment().format("YYYY")}
-          </p>
-        </div>
-        <div className="calendar-weekdays">
-          {weekDays.map((weekDay) => {
-            return <p>{weekDay}</p>;
-          })}
-        </div>
-        <div>
-          <ul className="calendar-days">
-            {[...Array(firstWeekDayOfMonth(month)).keys()].map((x) =>
-              x < firstWeekDayOfMonth(month) ? <div></div> : null
-            )}
-            {[...Array(daysInMonth(month + 1)).keys()].map((x, i) =>
-              x < currentDayOfMonth - 1 && month === currentMonth ? (
-                <li className="calendar-day_unactive">{x + 1}</li>
-              ) : (
+      {[...Array(12).keys()].map((x) => (
+        <div className="calendar-single">
+          <div className="calendar-header">
+            <div>
+              {moment()
+                .month(currentMonth + x)
+                .format("MMMM")}
+            </div>
+          </div>
+          <div className="calendar-weekdays">
+            <p>S</p>
+            <p>M</p>
+            <p>T</p>
+            <p>W</p>
+            <p>T</p>
+            <p>F</p>
+            <p>S</p>
+          </div>
+          <div>
+            <ul className="calendar-days">
+              {[
+                ...Array(
+                  moment(
+                    `${moment()
+                      .month(currentMonth + x)
+                      .format("MMMM")}`,
+                    "MMMM"
+                  ).daysInMonth()
+                ).keys(),
+              ].map((day) => (
                 <li
                   onClick={(e) => active(`${year}-${month + 1}-${x + 1}`, e)}
                   value={`${year}-${month + 1}-${x + 1}`}
@@ -79,43 +102,14 @@ const Calendar = () => {
                       : "calendar-day"
                   }
                 >
-                  {x + 1}
+                  {day + 1}
                 </li>
-              )
-            )}
-          </ul>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="calendar-single">
-        <div className="calendar-header">
-          <p>
-            {moment()
-              .month(month + 1)
-              .format("MMMM")}{" "}
-            {moment().format("YYYY")}
-          </p>
-        </div>
-        <div className="calendar-weekdays">
-          {weekDays.map((weekDay) => {
-            return <p>{weekDay}</p>;
-          })}
-        </div>
-        <div>
-          <ul className="calendar-days">
-            {[...Array(firstWeekDayOfMonth(month + 1)).keys()].map((x) =>
-              x < firstWeekDayOfMonth(month + 1) ? <div></div> : null
-            )}
-            {[...Array(daysInMonth(month + 2)).keys()].map((x) => (
-              <li
-                value={`${year}-${month + 2}-${x + 1}`}
-                className="calendar-day"
-              >
-                {x + 1}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      ))}
+
       {month >= 10 ? (
         <img className="calendar-arrows" src={angleRight} alt="angle right" />
       ) : (
