@@ -43,23 +43,11 @@ const Calendar = () => {
   };
 
   const active = (e) => {
-    if (
-      convertDateToSeconds(e) > convertDateToSeconds(flightDate.arrivalDate)
-    ) {
+    if (flightDate.count % 2 == 0) {
       setFlightDate({
         ...flightDate,
         departureDate: e,
         arrivalDate: null,
-        departureDateClassName: "departureDate-active",
-        count: flightDate.count - 1,
-      });
-    } else if (
-      flightDate.count % 2 == 0 ||
-      convertDateToSeconds(e) < convertDateToSeconds(flightDate.departureDate)
-    ) {
-      setFlightDate({
-        ...flightDate,
-        departureDate: e,
         departureDateClassName: "departureDate-active",
         count: flightDate.count + 1,
       });
