@@ -208,6 +208,10 @@ nav {
   cursor: pointer;
 }
 
+.inbetweenDate {
+  background-color: #e8f0fe;
+}
+
 .selectAirport {
   width: 250px;
 }

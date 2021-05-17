@@ -8,7 +8,7 @@ const Calendar = () => {
   const [year, setYear] = useState(moment().format("YYYY"));
   const [isActive, setIsActive] = useState(null);
   const [flightDate, setFlightDate] = useState({
-    count: -1,
+    count: 0,
     departureDate: null,
     departureDateClassName: null,
     arrivalDate: null,
@@ -21,6 +21,10 @@ const Calendar = () => {
     moment()
       .month(currentMonth + num)
       .format("MMMM");
+
+  const convertDateToSeconds = (date) => {
+    return moment(date, "YYYY/MM/DD").valueOf();
+  };
 
   const firstWeekDayOfMonth = (monthNumber) => {
     return moment(`May`, "MMMM").startOf("month").weekday();
@@ -39,7 +43,20 @@ const Calendar = () => {
   };
 
   const active = (e) => {
-    if (flightDate.count % 2 !== 0) {
+    if (
+      convertDateToSeconds(e) > convertDateToSeconds(flightDate.arrivalDate)
+    ) {
+      setFlightDate({
+        ...flightDate,
+        departureDate: e,
+        arrivalDate: null,
+        departureDateClassName: "departureDate-active",
+        count: flightDate.count - 1,
+      });
+    } else if (
+      flightDate.count % 2 == 0 ||
+      convertDateToSeconds(e) < convertDateToSeconds(flightDate.departureDate)
+    ) {
       setFlightDate({
         ...flightDate,
         departureDate: e,
@@ -58,6 +75,12 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
+      {console.log(flightDate)}
+      {console.log(
+        convertDateToSeconds(flightDate.departureDate) >
+          convertDateToSeconds(flightDate.arrivalDate)
+      )}
+
       {month < moment().month() + 1 ? (
         <img className="calendar-arrows" src={angleLeft} alt="angle left" />
       ) : (
@@ -110,8 +133,16 @@ const Calendar = () => {
                     }
                     value={`${year}-${currentMonth + x + 1}-${day + 1}`}
                     className={
-                      flightDate.departureDate ===
-                      `${year}-${currentMonth + x + 1}-${day + 1}`
+                      convertDateToSeconds(flightDate.departureDate) <
+                        convertDateToSeconds(
+                          `${year}-${currentMonth + x + 1}-${day + 1}`
+                        ) &&
+                      convertDateToSeconds(
+                        `${year}-${currentMonth + x + 1}-${day + 1}`
+                      ) < convertDateToSeconds(flightDate.arrivalDate)
+                        ? "calendar-day inbetweenDate"
+                        : flightDate.departureDate ===
+                          `${year}-${currentMonth + x + 1}-${day + 1}`
                         ? `calendar-day ${flightDate.departureDateClassName}`
                         : flightDate.arrivalDate ===
                           `${year}-${currentMonth + x + 1}-${day + 1}`
