@@ -49,8 +49,14 @@
   }
 }
 
-.active {
+.departureDate-active {
   background-color: blue;
   color: white;
   border-radius: 50%;
+}
+
+.arrivalDate-active {
+  border: 2px solid blue;
+  border-radius: 50%;
+  cursor: pointer;
 }
