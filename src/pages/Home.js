@@ -10,7 +10,6 @@ const Home = () => {
       <h1>This is the home page</h1>
       <FindFlight />
       <SelectDate />
-      <Calendar />
     </div>
   );
 };
