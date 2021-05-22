@@ -1,4 +1,10 @@
+@use "variables/colors";
+
 @use "globals/fonts";
+@use "globals/globals";
+@use "globals/buttons";
+
+@use "pages/home";
 
 @use "components/SelectDate";
 @use "components/Header";
@@ -6,7 +12,4 @@
 @use "components/SelectAirport";
 @use "components/FindFlight";
 
-@use "utilities/global";
 @use "utilities/grid";
-
-@use "variables/colors";

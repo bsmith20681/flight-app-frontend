@@ -2,25 +2,33 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Logo from "../images/logo-white.png";
+
 const Header = (props) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const toggleMenu = (e) => setMobileMenu(!mobileMenu);
   return (
-    <header className="container">
+    <header className="container header">
       {/* Actual Menu*/}
       <nav>
-        <h3>
-          <Link to="/">logo</Link>
-        </h3>
+        <Link to="/">
+          <img className="header-logo" src={Logo} alt="logo" />
+        </Link>
+
         <ul className={"nav-link-list " + (mobileMenu ? "open" : "")}>
           <li className="nav-link">
             <Link to="/">Home</Link>
           </li>
           <li className="nav-link">
-            <Link to="/about">About Us</Link>
+            <Link to="#">About Us</Link>
           </li>
           <li className="nav-link">
-            <Link to="/sign-in">Sign in</Link>
+            <Link to="#">Sign in</Link>
+          </li>
+          <li className="nav-link">
+            <Link className="btn btn-blue" to="#">
+              Register
+            </Link>
           </li>
         </ul>
       </nav>

@@ -1,0 +1,12 @@
+.hero {
+  background-image: url("../images/beach-background.jpg");
+  //background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  &-title {
+    color: #fff;
+    max-width: 600px;
+  }
+}

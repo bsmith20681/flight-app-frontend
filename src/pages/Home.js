@@ -6,11 +6,11 @@ import Calendar from "../components/Calendar";
 
 const Home = () => {
   return (
-    <div className="container">
-      <h1>This is the home page</h1>
-      <FindFlight />
-      <SelectDate />
-    </div>
+    <section className="hero">
+      <div className="container py-7">
+        <h1 className="hero-title">Book With Us And Enjoy Your Journey!</h1>
+      </div>
+    </section>
   );
 };
 
