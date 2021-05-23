@@ -1,3 +1,5 @@
+@use "../variables/colors";
+
 .hero {
   background-image: url("../images/beach-background.jpg");
   //background-position: center;
@@ -8,5 +10,36 @@
   &-title {
     color: #fff;
     max-width: 600px;
+  }
+}
+
+.offer {
+  &-image {
+    min-width: 538px;
+    margin-right: 1rem;
+  }
+
+  &-text {
+    color: colors.$dark-grey;
+
+    &_wrapper {
+      max-width: 600px;
+    }
+    &_orange {
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      color: colors.$orange;
+      margin-top: 0;
+    }
+  }
+
+  &-date {
+    font-size: 1.5rem;
+  }
+
+  &-price {
+    color: colors.$orange;
+    font-size: 2rem;
+    margin: 0 2rem;
   }
 }
