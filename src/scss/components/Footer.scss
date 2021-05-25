@@ -1,0 +1,15 @@
+@use "../variables/colors";
+
+.footer {
+  background-color: colors.$light-grey;
+  padding: 30px 0;
+
+  &-link {
+    text-decoration: none;
+    color: colors.$dark-grey;
+    &_list {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
