@@ -15,6 +15,7 @@ const Home = () => {
       <section className="hero">
         <div className="container py-7">
           <h1 className="hero-title">Book With Us And Enjoy Your Journey!</h1>
+          <FindFlight />
         </div>
       </section>
       <section className="offer my-6">

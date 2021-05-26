@@ -81,7 +81,9 @@ const FindFlight = () => {
           <Calendar flightDate={flightDate} active={active} />
         </div>
 
-        <button onSubmit={handleSubmit}>Find Flights</button>
+        <button className="btn btn-orange" onSubmit={handleSubmit}>
+          Find Flights
+        </button>
       </form>
     </div>
   );

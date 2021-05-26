@@ -18,9 +18,11 @@
     background-color: colors.$orange;
     border-radius: 10px;
     transition: 0.3s;
+    border: none;
 
     &:hover {
       background-color: colors.$dark-orange;
+      cursor: pointer;
     }
   }
 }

@@ -43,9 +43,11 @@ button {
   background-color: #ff7424;
   border-radius: 10px;
   transition: 0.3s;
+  border: none;
 }
 .btn-orange:hover {
   background-color: #c0591d;
+  cursor: pointer;
 }
 
 .hero {
@@ -101,12 +103,6 @@ button {
   width: 100%;
   max-width: 250px;
   font-size: 1rem;
-}
-.newsletter-button {
-  border: none;
-}
-.newsletter-button:hover {
-  cursor: pointer;
 }
 
 .selectDate {
@@ -296,6 +292,7 @@ nav {
   border: 1px solid black;
   width: fit-content;
   align-items: flex-start;
+  background-color: white;
 }
 .calendar-arrows {
   width: 16px;

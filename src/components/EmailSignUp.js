@@ -12,7 +12,7 @@ const EmailSignup = () => {
         value={inputData}
         onChange={(e) => setInputDate(e.target.value)}
       />
-      <button className="btn btn-orange newsletter-button">Sign Up</button>
+      <button className="btn btn-orange">Sign Up</button>
     </form>
   );
 };
