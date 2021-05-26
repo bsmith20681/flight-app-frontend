@@ -43,3 +43,32 @@
     margin: 0 2rem;
   }
 }
+
+.newsletter {
+  background-color: colors.$blue;
+  border-radius: 15px;
+  text-align: center;
+  color: colors.$white;
+
+  &-title {
+    margin: 0;
+  }
+
+  &-input {
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    margin-right: 1rem;
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+  }
+
+  &-button {
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

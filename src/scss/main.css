@@ -21,7 +21,8 @@ h6 {
 }
 
 a,
-p {
+p,
+button {
   font-family: "Poppins", sans-serif;
 }
 
@@ -81,6 +82,31 @@ p {
   color: #ff7424;
   font-size: 2rem;
   margin: 0 2rem;
+}
+
+.newsletter {
+  background-color: #0839bc;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+}
+.newsletter-title {
+  margin: 0;
+}
+.newsletter-input {
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  margin-right: 1rem;
+  width: 100%;
+  max-width: 250px;
+  font-size: 1rem;
+}
+.newsletter-button {
+  border: none;
+}
+.newsletter-button:hover {
+  cursor: pointer;
 }
 
 .selectDate {
@@ -255,11 +281,12 @@ nav {
   background-color: #f9f9f9;
   padding: 30px 0;
 }
-.footer-link {
+.footer-item {
   text-decoration: none;
+  margin: 0 10px 0 0;
   color: #5e5e5e;
 }
-.footer-link_list {
+.footer-item_list {
   display: flex;
   flex-direction: column;
 }
