@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SelectAirport from "../components/SelectAirport";
 import Calendar from "../components/Calendar";
+import SelectDate from "../components/SelectDate";
+import { Link } from "react-router-dom";
 
 const FindFlight = () => {
   const [data, setData] = useState("");
@@ -62,9 +64,9 @@ const FindFlight = () => {
   };
 
   return (
-    <div className="">
+    <div className="findFlight-wrapper my-7">
       {console.log(flightDate)}
-      <form onSubmit={handleSubmit} className="findFlight">
+      <div className="findFlight">
         <SelectAirport
           placeholder="From?"
           onChange={(e) => {
@@ -78,13 +80,21 @@ const FindFlight = () => {
           }}
         />
         <div>
-          <Calendar flightDate={flightDate} active={active} />
+          <SelectDate flightDate={flightDate} active={active} />
         </div>
 
-        <button className="btn btn-orange" onSubmit={handleSubmit}>
+        <Link
+          className="btn btn-orange"
+          to={{
+            pathname: "/results",
+            state: {
+              data,
+            },
+          }}
+        >
           Find Flights
-        </button>
-      </form>
+        </Link>
+      </div>
     </div>
   );
 };

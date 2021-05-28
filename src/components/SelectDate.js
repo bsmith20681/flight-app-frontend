@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Calendar from "../components/Calendar";
 import calendarIcon from "../images/calendar-alt.svg";
 
-const SelectDate = () => {
+const SelectDate = (props) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const toggleCalendar = () => {
@@ -40,9 +40,7 @@ const SelectDate = () => {
             isCalendarOpen ? "visible" : "hidden"
           }`}
         >
-          <div className="selectDate-month_container">
-            <Calendar />
-          </div>
+          <Calendar flightDate={props.flightDate} active={props.active} />
         </div>
       </div>
     </>

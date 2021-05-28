@@ -1,4 +1,13 @@
 .findFlight {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
+  &-wrapper {
+    max-width: 960px;
+    background-color: white;
+    border: 1px solid #dadce0;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+  }
 }

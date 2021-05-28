@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import BlankSpaces from "../components/BlankSpaces";
-import Day from "../components/Day";
 import moment from "moment";
 import angleLeft from "../images/angle-left.svg";
 import angleRight from "../images/angle-right.svg";
