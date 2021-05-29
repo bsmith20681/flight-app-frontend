@@ -147,6 +147,10 @@ button {
   visibility: visible;
 }
 
+.itinerary {
+  border: 1px solid black;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -425,6 +429,10 @@ nav {
 
 .justify-content-around {
   justify-content: space-around;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .align-items-center {

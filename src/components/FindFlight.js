@@ -21,10 +21,10 @@ const FindFlight = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const options = {
+    var options = {
       method: "GET",
-      url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/${formData.flyingFrom}-sky/${formData.flyingTo}-sky/${flightDate.departureDate}`,
-      params: { inboundpartialdate: `anytime` },
+      url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2021-09-01",
+      params: { inboundpartialdate: "2021-09-27" },
       headers: {
         "x-rapidapi-key": "6548d07ae3msh59978a08b6317aep162abajsnf71503eccb2d",
         "x-rapidapi-host":
@@ -34,12 +34,11 @@ const FindFlight = () => {
 
     axios
       .request(options)
-      .then((response) => {
+      .then(function (response) {
         console.log(response.data);
-        setData(response.data);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(function (error) {
+        console.error(error);
       });
     console.log("handling the form");
   };
@@ -66,7 +65,7 @@ const FindFlight = () => {
   return (
     <div className="findFlight-wrapper my-7">
       {console.log(flightDate)}
-      <div className="findFlight">
+      <form className="findFlight" onSubmit={handleSubmit}>
         <SelectAirport
           placeholder="From?"
           onChange={(e) => {
@@ -88,13 +87,16 @@ const FindFlight = () => {
           to={{
             pathname: "/results",
             state: {
-              data,
+              flyingTo: formData.flyingTo,
+              flyingFrom: formData.flyingFrom,
+              departureDate: flightDate.departureDate,
+              arrivalDate: flightDate.arrivalDate,
             },
           }}
         >
           Find Flights
         </Link>
-      </div>
+      </form>
     </div>
   );
 };

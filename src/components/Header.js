@@ -58,22 +58,6 @@ const Header = (props) => {
           </ul>
         </nav>
       )}
-
-      {/*Mobile Menu Utilities*/}
-      <div id="hamburger" onClick={toggleMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div
-        id="close-menu"
-        className={mobileMenu ? "open" : ""}
-        onClick={toggleMenu}
-      >
-        <div></div>
-        <div></div>
-      </div>
-      <a href="#" id={mobileMenu ? "overlay" : ""} onClick={toggleMenu}></a>
     </header>
   );
 };
