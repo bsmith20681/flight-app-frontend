@@ -1,5 +1,6 @@
 import React from "react";
 
+import Layout from "../components/Layout";
 import FindFlight from "../components/FindFlight";
 import SelectDate from "../components/SelectDate";
 import Calendar from "../components/Calendar";
@@ -11,13 +12,14 @@ import EmailSignup from "../components/EmailSignUp";
 
 const Home = () => {
   return (
-    <React.Fragment>
+    <Layout>
       <section className="hero">
         <div className="container py-7">
           <h1 className="hero-title">Book With Us And Enjoy Your Journey!</h1>
           <FindFlight />
         </div>
       </section>
+
       <section className="offer my-6">
         <div className="container">
           <div className="row">
@@ -54,7 +56,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <div className="container newsletter py-5 my-6">
         <h3 className="newsletter-title">Sign up to our Newsletter</h3>
         <p>Get the latest news by signing up for our news letter.</p>
@@ -93,7 +94,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </React.Fragment>
+    </Layout>
   );
 };
 

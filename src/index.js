@@ -12,12 +12,10 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/results" component={Results} />
       </Switch>
-      <Footer />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

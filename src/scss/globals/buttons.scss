@@ -3,8 +3,9 @@
 .btn {
   padding: 10px 25px;
   text-decoration: none;
-  color: colors.$white;
+  color: colors.$white !important;
   &-blue {
+    color: colors.$white;
     background-color: colors.$blue;
     border-radius: 10px;
     transition: 0.3s;
