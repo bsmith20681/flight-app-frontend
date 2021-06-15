@@ -19,30 +19,6 @@ const FindFlight = () => {
     arrivalDateClassName: null,
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    var options = {
-      method: "GET",
-      url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2021-09-01",
-      params: { inboundpartialdate: "2021-09-27" },
-      headers: {
-        "x-rapidapi-key": "6548d07ae3msh59978a08b6317aep162abajsnf71503eccb2d",
-        "x-rapidapi-host":
-          "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      },
-    };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    console.log("handling the form");
-  };
-
   const active = (e) => {
     if (flightDate.count % 2 == 0) {
       setFlightDate({
@@ -65,7 +41,7 @@ const FindFlight = () => {
   return (
     <div className="findFlight-wrapper my-7">
       {console.log(flightDate)}
-      <form className="findFlight" onSubmit={handleSubmit}>
+      <form className="findFlight">
         <SelectAirport
           placeholder="From?"
           onChange={(e) => {
