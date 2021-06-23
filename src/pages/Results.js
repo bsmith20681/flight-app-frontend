@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/Loading";
 
@@ -28,29 +29,36 @@ const Results = (props) => {
         console.error(error);
       });
     console.log("handling the form");
-  });
+  }, []);
   return (
     <div className="container">
-      {console.log(props)}
+      {console.log(data)}
       <div className="row justify-content-center align-items-center">
         {loading ? (
           <Loading />
-        ) : (
-          <div className="itinerary">
-            <p>
-              {props.location.state.flyingFrom} -{" "}
-              {props.location.state.flyingTo}
-            </p>
-            <p>${data.Quotes[0]["MinPrice"]}</p>
-            <p>
-              {
-                data.Carriers.find(
-                  ({ CarrierId }) =>
-                    CarrierId === data.Quotes[0].OutboundLeg.CarrierIds[0]
-                ).Name
-              }
-            </p>
+        ) : data.Quotes.length === 0 ? (
+          <div>
+            <p>no flights are avaliable</p>
+            <Link to="/">Search Another Flight</Link>
           </div>
+        ) : (
+          data.Quotes.map((flightInfo) => (
+            <div className="itinerary">
+              <p>
+                {props.location.state.flyingFrom} -{" "}
+                {props.location.state.flyingTo}
+              </p>
+              <p>${flightInfo["MinPrice"]}</p>
+              <p>
+                {
+                  data.Carriers.find(
+                    ({ CarrierId }) =>
+                      CarrierId === flightInfo.OutboundLeg.CarrierIds[0]
+                  ).Name
+                }
+              </p>
+            </div>
+          ))
         )}
       </div>
     </div>
